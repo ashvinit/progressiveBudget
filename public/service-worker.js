@@ -3,20 +3,15 @@ const DATA_CACHE_NAME = "data-cache-v1";
 const FILES_TO_CACHE = [
     "/",
     "/index.html",
-    "/favicon.ico",
-    "/manifest.webmanifest",
-    "/assets/css/style.css",
-    "/assets/js/loadImages.js",
-    "/assets/images/icons/icon-192x192.png",
-    "/assets/images/icons/icon-512x512.png"
+    "/styles.css",
+    "/icons/icon-192x192.png",
+    "/icons/icon-512x512.png",
+    "/index.js",
+    "/db.js"
 ];
 
 // install
 self.addEventListener("install", function (evt) {
-    // pre cache image data
-    evt.waitUntil(
-        caches.open(DATA_CACHE_NAME).then((cache) => cache.add("/api/images"))
-    );
 
     // pre cache all static assets
     evt.waitUntil(
